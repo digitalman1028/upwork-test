@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 import House from './components/House';
@@ -8,7 +7,6 @@ import Spinner from './components/Spinner';
 function App() {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     // Replace with your API URL
@@ -28,7 +26,7 @@ function App() {
         setLoading(false); // Set loading to false as we have the data now
       })
       .catch((error) => {
-        setError(error.message); // Capture any errors that occur during the fetch
+        console.log(error.message); // Capture any errors that occur during the fetch
         setLoading(false);
       });
   }, []);
